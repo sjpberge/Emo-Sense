@@ -1,0 +1,32 @@
+Start here:
+https://paperswithcode.com/datasets?task=emotion-recognition
+
+"Emotion detection using deep learning"
+7 years old, webcam integration, simplecnn
+Trained on FER2013
+https://github.com/atulapra/Emotion-detection
+
+"Real-Time Multimodal Emotion Recognition"
+XCeption model
+working web app - good for ideas when developing our pipeline
+Trained on FER2013
+https://github.com/maelfabien/Multimodal-Emotion-Recognition
+https://colab.research.google.com/drive/1dV1IvYLV24vXGvyzMFNAA18csu8btV2-#scrollTo=LI6OAf2Blqmx
+
+"Multitask-Emotion-Recognition-with-Incomplete-Labels"
+CNN-RNN hybrid, better at capturing temporal dependencies in emotion recognition
+Trained on Aff-wild2, better dataset in the wild
+https://github.com/wtomin/Multitask-Emotion-Recognition-with-Incomplete-Labels
+
+"Py-Feat"
+ResMaskNet
+Trained on FER 2013, SOTA
+https://github.com/phamquiluan/ResidualMaskingNetwork
+https://github.com/cosanlab/py-feat
+
+"EXPWild"
+Graph Networks
+https://github.com/HCPLab-SYSU/CD-FER-Benchmark
+
+
+
