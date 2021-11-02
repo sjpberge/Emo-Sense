@@ -167,6 +167,7 @@ def video_dash():
     df_2 = pd.read_csv('static/js/db/prob.csv')
     max_props = np.argmax(df_2.to_numpy(), axis=1)
     _, max_counts = np.unique(max_props, return_counts=True)
+    total_counts = [np.count_nonzero(max_props == i) for i in range(7)]
 
     def emo_prop(df_2):
         return [int(100 * np.count_nonzero(max_props == 0) / len(df_2)),
@@ -195,7 +196,7 @@ def video_dash():
     # df_glob.columns = ['EMOTION', 'VALUE']
     # df_glob.to_csv('static/js/db/hist_vid_glob.txt', sep=",", index=False)
 
-    emotion = np.argmax(max_counts)
+    emotion = np.argmax(total_counts)
     # emotion_other = df.density.mode()[0]
 
     def emotion_label(emotion):
@@ -259,8 +260,9 @@ def video_dash():
 
     chart.save('static/CSS/chart.html')
 
-    return render_template('video_dash.html', emo=emotion_label(emotion), emo_other=emotion_label(emotion),
-                           prob=emo_prop(df_2), prob_other=emo_prop(df_2))
+    # return render_template('video_dash.html', emo=emotion_label(emotion), emo_other=emotion_label(emotion),
+    #                        prob=emo_prop(df_2), prob_other=emo_prop(df_2))
+    return render_template('video_dash.html', emo=emotion_label(emotion), prob=emo_prop(df_2))
 
 
 if __name__ == '__main__':
