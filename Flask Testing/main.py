@@ -24,11 +24,11 @@ def gen():
     """
     Video streaming generator function.
     """
-    face_model = "mtcnn"
-    landmark_model = "mobilenet"
-    au_model = "rf"
-    emotion_model = "resmasknet"
-    detector = Detector(face_model=face_model, landmark_model=landmark_model, au_model=au_model, emotion_model=emotion_model)
+    # face_model = "mtcnn"
+    # landmark_model = "mobilenet"
+    # au_model = "rf"
+    # emotion_model = "resmasknet"
+    # detector = Detector(face_model=face_model, landmark_model=landmark_model, au_model=au_model, emotion_model=emotion_model)
 
     emotional_labels = ['anger', 'disgust', 'fear', 'happiness', 'sadness', 'surprise', 'neutral']
 
@@ -169,13 +169,13 @@ def video_dash():
     _, max_counts = np.unique(max_props, return_counts=True)
 
     def emo_prop(df_2):
-        return [int(100 * max_counts[0] / len(df_2)),
-                int(100 * max_counts[1] / len(df_2)),
-                int(100 * max_counts[2] / len(df_2)),
-                int(100 * max_counts[3] / len(df_2)),
-                int(100 * max_counts[4] / len(df_2)),
-                int(100 * max_counts[5] / len(df_2)),
-                int(100 * max_counts[6] / len(df_2))]
+        return [int(100 * np.count_nonzero(max_props == 0) / len(df_2)),
+                int(100 * np.count_nonzero(max_props == 1) / len(df_2)),
+                int(100 * np.count_nonzero(max_props == 2) / len(df_2)),
+                int(100 * np.count_nonzero(max_props == 3) / len(df_2)),
+                int(100 * np.count_nonzero(max_props == 4) / len(df_2)),
+                int(100 * np.count_nonzero(max_props == 5) / len(df_2)),
+                int(100 * np.count_nonzero(max_props == 6) / len(df_2))]
 
     emotions = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
     # emo_perso = {}
@@ -259,9 +259,15 @@ def video_dash():
 
     chart.save('static/CSS/chart.html')
 
-    return render_template('video_dash.html', emo=emotion_label(emotion), emo_other=emotion_label(emption),
+    return render_template('video_dash.html', emo=emotion_label(emotion), emo_other=emotion_label(emotion),
                            prob=emo_prop(df_2), prob_other=emo_prop(df_2))
 
 
 if __name__ == '__main__':
+    face_model = "mtcnn"
+    landmark_model = "mobilenet"
+    au_model = "rf"
+    emotion_model = "resmasknet"
+    detector = Detector(face_model=face_model, landmark_model=landmark_model, au_model=au_model,
+                        emotion_model=emotion_model)
     app.run(debug=True)
