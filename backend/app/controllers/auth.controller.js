@@ -10,52 +10,70 @@ exports.signup = (req, res) => {
   const user = new User({
     username: req.body.username,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
+    password: bcrypt.hashSync(req.body.password, 8),
+    genres: req.body.genres
   });
 
   user.save((err, user) => {
     if (err) {
-      res.status(500).send({ message: err });
+      res.status(500).send({
+        message: err
+      });
       return;
     }
 
     if (req.body.roles) {
-      Role.find(
-        {
-          name: { $in: req.body.roles }
+      Role.find({
+          name: {
+            $in: req.body.roles
+          }
         },
         (err, roles) => {
           if (err) {
-            res.status(500).send({ message: err });
+            res.status(500).send({
+              message: err
+            });
             return;
           }
 
           user.roles = roles.map(role => role._id);
           user.save(err => {
             if (err) {
-              res.status(500).send({ message: err });
+              res.status(500).send({
+                message: err
+              });
               return;
             }
 
-            res.send({ message: "User registered successfully!" });
+            res.send({
+              message: "User registered successfully!"
+            });
           });
         }
       );
     } else {
-      Role.findOne({ name: "user" }, (err, role) => {
+      Role.findOne({
+        name: "user"
+      }, (err, role) => {
         if (err) {
-          res.status(500).send({ message: err });
+          res.status(500).send({
+            message: err
+          });
           return;
         }
 
         user.roles = [role._id];
         user.save(err => {
           if (err) {
-            res.status(500).send({ message: err });
+            res.status(500).send({
+              message: err
+            });
             return;
           }
 
-          res.send({ message: "User registered successfully!" });
+          res.send({
+            message: "User registered successfully!"
+          });
         });
       });
     }
@@ -64,17 +82,21 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
   User.findOne({
-    username: req.body.username
-  })
+      username: req.body.username
+    })
     .populate("roles", "-__v")
     .exec((err, user) => {
       if (err) {
-        res.status(500).send({ message: err });
+        res.status(500).send({
+          message: err
+        });
         return;
       }
 
       if (!user) {
-        return res.status(404).send({ message: "User not found" });
+        return res.status(404).send({
+          message: "User not found"
+        });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -89,7 +111,9 @@ exports.signin = (req, res) => {
         });
       }
 
-      var token = jwt.sign({ id: user.id }, config.secret, {
+      var token = jwt.sign({
+        id: user.id
+      }, config.secret, {
         expiresIn: 43200
       });
 
