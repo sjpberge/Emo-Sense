@@ -50,86 +50,58 @@ class App extends Component {
   render() {
     const { currentUser } = this.state;
 
-    if (currentUser !== undefined) {
-      return (
-        <Switch>
-          <Route exact path="/logout" onClick={this.logOut} component={Login} />
-          <Route
-            path="/"
-            component={() => {
-              window.location.href = "http://127.0.0.1:8000";
-              return null;
-            }}
-          />
-        </Switch>
-      );
-    } else {
-      return (
-        <div>
-          <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <Link to={"/"} className="navbar-brand">
-              Emo-Sense
-            </Link>
-            <div className="navbar-nav mr-auto">
+    return (
+      <div>
+        <nav className="navbar navbar-expand navbar-dark bg-dark">
+          <Link to={"/"} className="navbar-brand">
+            Emo-Sense
+          </Link>
+
+          {currentUser ? (
+            <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to={"/home"} className="nav-link">
-                  Home
+                <Link to={"/profile"} className="nav-link">
+                  {currentUser.username}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a href="/login" className="nav-link" onClick={this.logOut}>
+                  LogOut
+                </a>
+              </li>
+            </div>
+          ) : (
+            <div className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to={"/login"} className="nav-link">
+                  Login
                 </Link>
               </li>
 
-              {currentUser && (
-                <li className="nav-item">
-                  <Link to={"/user"} className="nav-link">
-                    User
-                  </Link>
-                </li>
-              )}
+              <li className="nav-item">
+                <Link to={"/register"} className="nav-link">
+                  Sign Up
+                </Link>
+              </li>
             </div>
+          )}
+        </nav>
 
-            {currentUser ? (
-              <div className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link to={"/profile"} className="nav-link">
-                    {currentUser.username}
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <a href="/login" className="nav-link" onClick={this.logOut}>
-                    LogOut
-                  </a>
-                </li>
-              </div>
-            ) : (
-              <div className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link to={"/login"} className="nav-link">
-                    Login
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link to={"/register"} className="nav-link">
-                    Sign Up
-                  </Link>
-                </li>
-              </div>
-            )}
-          </nav>
-
-          <div className="container mt-3">
-            <Switch>
-              <Route exact path={["/", "/login"]} component={Login} />
-              <Route path="/logout" onClick={this.logOut} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/profile" component={Profile} />
-            </Switch>
-          </div>
-
-          {/*<AuthVerify logOut={this.logOut}/> */}
+        <div className="container mt-3">
+          <Switch>
+            <Route exact path={"/"} />
+            <Route exact path={"/login"} component={Login} />
+            <Route path="/logout" onClick={this.logOut} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/profile" component={Profile} />
+          </Switch>
         </div>
-      );
-    }
+
+        {/*<AuthVerify logOut={this.logOut}/> */}
+      </div>
+    );
   }
 }
+
 
 export default App;

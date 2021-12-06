@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import { Route } from "react-router-dom";
 
@@ -10,27 +9,27 @@ export default class Profile extends Component {
     this.state = {
       redirect: null,
       userReady: false,
-      currentUser: { username: "" },
+      currentUser: undefined,
     };
   }
 
   componentDidMount() {
-    const currentUser = AuthService.getCurrentUser();
+    let currentUser = AuthService.getCurrentUser();
 
-    if (!currentUser) this.setState({ redirect: "/home" });
+    if (!currentUser) this.setState({ redirect: "/login" });
     this.setState({ currentUser: currentUser, userReady: true });
+    console.log(this.state.currentUser)
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
+    if (!this.state.currentUser) {
+      return <p>Loading...</p>
     }
-
     return (
       <Route
         path="/"
         component={() => {
-          window.location.href = "http://127.0.0.1:8000";
+          window.location.href = "http://127.0.0.1:5000/video?genres=" + this.state.currentUser.genres.join(',');
           return null;
         }}
       />

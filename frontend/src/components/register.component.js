@@ -67,75 +67,75 @@ export default class Register extends Component {
       options: [
         {
           name: "Action",
-          id: 1,
+          id: 0,
         },
         {
           name: "Adventure",
-          id: 2,
+          id: 1,
         },
         {
           name: "Animation",
-          id: 3,
+          id: 2,
         },
         {
           name: "Children's",
-          id: 4,
+          id: 3,
         },
         {
           name: "Comedy",
-          id: 5,
+          id: 4,
         },
         {
           name: "Crime",
-          id: 6,
+          id: 5,
         },
         {
           name: "Documentary",
-          id: 7,
+          id: 6,
         },
         {
           name: "Drama",
-          id: 8,
+          id: 7,
         },
         {
           name: "Fantasy",
-          id: 9,
+          id: 8,
         },
         {
           name: "Film-Noir",
-          id: 10,
+          id: 9,
         },
         {
           name: "Horror",
-          id: 11,
+          id: 10,
         },
         {
           name: "Musical",
-          id: 12,
+          id: 11,
         },
         {
           name: "Mystery",
-          id: 13,
+          id: 12,
         },
         {
           name: "Romance",
-          id: 14,
+          id: 13,
         },
         {
           name: "Sci-Fi",
-          id: 15,
+          id: 14,
         },
         {
           name: "Thriller",
-          id: 16,
+          id: 15,
         },
         {
           name: "War",
-          id: 17,
+          id: 16,
         },
         {
           name: "Western",
-          id: 18,
+          id: 17,
         },
       ],
     };
