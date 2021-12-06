@@ -326,18 +326,41 @@ def video_dash():
     # print(filtered_recommendations)
     print("Top movie recommendations")
     print("----" * 8)
+    movie_genres = ""
+    title = ""
+
     for row in filtered_recommendations.itertuples():
         movie_id = row.movieId
+        movie_genres = row.genres
+        title = row.title
         break
+
     links_df = pd.read_csv('static/js/db/links_df.csv')
     tmdbId = links_df.loc[links_df['movieId'] == movie_id, "tmdbId"].values[0]
     movie_url = tmdb_url + str(int(tmdbId)) + "?api_key=" + tmdb_api_key
-    tmdb_response = requests.get(movie_url).json()
+    credits_url = tmdb_url + str(int(tmdbId)) + \
+        "/credits?api_key=" + tmdb_api_key
+
+    movie_response = requests.get(movie_url).json()
     poster_path = "https://image.tmdb.org/t/p/w500" + \
-        tmdb_response["poster_path"]
+        movie_response["poster_path"]
+
+    credits_response = requests.get(credits_url).json()
+    director = ""
+
+    for member in credits_response["crew"]:
+
+        if member['job'] == "Director":
+            director = member['name']
+            break
+
+    cast = []
+
+    for member in credits_response["cast"][:3]:
+        cast.append(member['name'])
 
     # Change template in final output
-    return render_template('video_dash.html', movie=movie_id)
+    return render_template('movie.html', title=title, director=director, cast=cast, poster=poster_path, genres=movie_genres)
 
 
 if __name__ == '__main__':

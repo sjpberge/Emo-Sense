@@ -2,331 +2,247 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<style>
- body {
-  font-family: Arial;
-  margin: 0 auto; /* Center website */
-  max-width: 700px; /* Max width */
-  padding: 20px;
-  background-color:#c9969a;
-         color:#645a5a;
-        
-}
-    h1  {
-         font-family:"Comic Sans MS";
-         text-align: center;
-        }
-    h2  {
-         text-align: center;
-         color:#837373;
-        }
-  
-        p.first  {
-         text-align: center;
-         list-style-type:square;
-        }
-        p.second  {
-            border-style: solid;
-        }
-        p.third  {
-            border-style: solid;
-        }
-        p.fourth  {
-            border-style: solid;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0 auto;
+      /* Center website */
+      max-width: 700px;
+      /* Max width */
+      padding: 20px;
+      background: linear-gradient(#e66465, #9198e5);
+      background-attachment: fixed;
+      color: #645a5a;
+
+    }
+
+    h1 {
+      font-family: "Comic Sans MS";
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+      color: #837373;
+    }
+
+    p.first {
+      text-align: center;
+      list-style-type: square;
+    }
+
+    p.second {
+      border-style: solid;
+    }
+
+    p.third {
+      border-style: solid;
+    }
+
+    p.fourth {
+      border-style: solid;
+    }
 
 
-        * {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
 
-.heading {
-  font-size: 25px;
-  margin-right: 25px;
-}
+    .heading {
+      font-size: 25px;
+      margin-right: 25px;
+    }
 
-.fa {
-  font-size: 25px;
-}
+    .fa {
+      font-size: 25px;
+    }
 
-.checked {
-  color: orange;
-}
+    .checked {
+      color: orange;
+    }
 
-/* Three column layout */
-.side {
-  float: left;
-  width: 15%;
-  margin-top:10px;
-}
+    /* Three column layout */
+    .side {
+      float: left;
+      width: 15%;
+      margin-top: 10px;
+    }
 
-.middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
-}
+    .middle {
+      margin-top: 10px;
+      float: left;
+      width: 70%;
+    }
 
-/* Place text to the right */
-.right {
-  text-align: right;
-}
+    /* Place text to the right */
+    .right {
+      text-align: right;
+    }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
-/* The bar container */
-.bar-container {
-  width: 88%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-}
+    /* The bar container */
+    .bar-container {
+      width: 88%;
+      background-color: #f1f1f1;
+      text-align: center;
+      color: white;
+    }
 
-/* Individual bars */
-.bar-10 {width: 18.4%; height: 18px; background-color: #ff9800;}
-.bar-9 {width: 20.3%; height: 18px; background-color: #ff9800;}
-.bar-8 {width: 26.3%; height: 18px; background-color: #ff9800;}
-.bar-7 {width: 17.7%; height: 18px; background-color: #ff9800;}
-.bar-6 {width: 7.6%; height: 18px; background-color: #ff9800;}
-.bar-5 {width: 3.4%; height: 18px; background-color: #ff9800;}
-.bar-4 {width: 1.6%; height: 18px; background-color: #ff9800;}
-.bar-3 {width: 1.1%; height: 18px; background-color: #ff9800;}
-.bar-2 {width: 0.9%; height: 18px; background-color: #ff9800;}
-.bar-1 {width: 2.7%; height: 18px; background-color: #ff9800;}
+    /* Individual bars */
+    .bar-10 {
+      width: 18.4%;
+      height: 18px;
+      background-color: #ff9800;
+    }
 
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-  .side, .middle {
-    width: 100%;
-  }
-  .right {
-    display: none;
-  }
-}
+    .bar-9 {
+      width: 20.3%;
+      height: 18px;
+      background-color: #ff9800;
+    }
 
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
+    .bar-8 {
+      width: 26.3%;
+      height: 18px;
+      background-color: #ff9800;
+    }
 
-  
-</style>
+    .bar-7 {
+      width: 17.7%;
+      height: 18px;
+      background-color: #ff9800;
+    }
+
+    .bar-6 {
+      width: 7.6%;
+      height: 18px;
+      background-color: #ff9800;
+    }
+
+    .bar-5 {
+      width: 3.4%;
+      height: 18px;
+      background-color: #ff9800;
+    }
+
+    .bar-4 {
+      width: 1.6%;
+      height: 18px;
+      background-color: #ff9800;
+    }
+
+    .bar-3 {
+      width: 1.1%;
+      height: 18px;
+      background-color: #ff9800;
+    }
+
+    .bar-2 {
+      width: 0.9%;
+      height: 18px;
+      background-color: #ff9800;
+    }
+
+    .bar-1 {
+      width: 2.7%;
+      height: 18px;
+      background-color: #ff9800;
+    }
+
+    /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+    @media (max-width: 400px) {
+
+      .side,
+      .middle {
+        width: 100%;
+      }
+
+      .right {
+        display: none;
+      }
+    }
+
+    .rate {
+      float: left;
+      height: 46px;
+      padding: 0 10px;
+    }
+
+    .rate:not(:checked)>input {
+      position: absolute;
+      top: -9999px;
+    }
+
+    .rate:not(:checked)>label {
+      float: right;
+      width: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 30px;
+      color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+      content: '★ ';
+    }
+
+    .rate>input:checked~label {
+      color: #ffc700;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+      color: #deb217;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+      color: #c59b08;
+    }
+  </style>
 </head>
-<center><a >
-    <img alt="Qries" src="https://img08.rl0.ru/afisha/e660x-i/daily.afisha.ru/uploads/images/f/5e/f5e1f21c1b3740f0840f46e2eb560a1e.jpg"
-    width=500" height="370">
- </a></center>
+
+{% block body %}
+
 <body>
 
-<h2> Star Wars </h2>
+  <center><a>
+      <img alt="Qries" src="{{poster}}" width="500">
+    </a></center>
 
-<div>
-    
-    
+
+  <h2> {{title}} </h2>
+
+  <div>
+
     <div>
-        <p class="first">Link To Trailer: <a href="https://www.imdb.com/video/vi2762323481?playlistId=tt2488496&ref_=tt_ov_vi"> Star Wars: Episode VII - The Force Awakens </a> </p>
-    </div>
-    <div>
-        <p class="second">Director: <a href="https://www.imdb.com/name/nm0009190/?ref_=tt_ov_dr"> J.J. Abrams</a></p>
-    </div>
-    <div>
-        <p class="third">Writers:<a href="https://www.imdb.com/name/nm0001410/?ref_=tt_ov_wr">Lawrence Kasdan,</a>
-            <a href="https://www.imdb.com/name/nm0009190/?ref_=tt_ov_wr">J.J. Abrams,</a> 
-            <a href="https://www.imdb.com/name/nm1578335/?ref_=tt_ov_wr"> Michael Arndt</a></p>
+      <p class="second">Director: {{director}}</p>
     </div>
     <div>
-        <p class="fourth">Actor List: <a href="https://www.imdb.com/name/nm5397459/?ref_=tt_ov_st">Daisy Ridley,</a>
-            <a href="https://www.imdb.com/name/nm3915784/?ref_=tt_ov_st">John Boyega,</a> 
-            <a href="https://www.imdb.com/name/nm1209966/?ref_=tt_ov_st"> Oscar Isaac,</a>
-        </p>
+      <p class="third">Genres: {{genres}}</p>
     </div>
-    
+    <div>
+      <p class="fourth">Cast: {{cast[0]}}, {{cast[1]}}, {{cast[2]}} </p>
+    </div>
 
-</div>
-<div>
-    <div class="rate">
-        <input type="radio" id="star5" name="rate" value="10" />
-        <label for="star5" title="text">10 stars</label>
-        <input type="radio" id="star4" name="rate" value="9" />
-        <label for="star4" title="text">9 stars</label>
-        <input type="radio" id="star3" name="rate" value="8" />
-        <label for="star3" title="text">8 stars</label>
-        <input type="radio" id="star2" name="rate" value="7" />
-        <label for="star2" title="text">7 stars</label>
-        <input type="radio" id="star1" name="rate" value="6" />
-        <label for="star1" title="text">6 star</label>
-        <input type="radio" id="star5" name="rate" value="5" />
-        <label for="star5" title="text">5 stars</label>
-        <input type="radio" id="star4" name="rate" value="4" />
-        <label for="star4" title="text">4 stars</label>
-        <input type="radio" id="star3" name="rate" value="3" />
-        <label for="star3" title="text">3 stars</label>
-        <input type="radio" id="star2" name="rate" value="2" />
-        <label for="star2" title="text">2 stars</label>
-        <input type="radio" id="star1" name="rate" value="1" />
-        <label for="star1" title="text">1 star</label>
-      </div>
-    <span class="heading">User Rating</span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<p>7.8 / 10 average based on 891,456 reviews.</p>
 
-<hr style="border:3px solid #f1f1f1">
-
-<div class="row">
-    <div class="side">
-      <div>10 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-10"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>163,774</div>
-    </div>
-    <div class="side">
-      <div>9 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-9"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>180,704</div>
-    </div>
-    <div class="side">
-      <div>8 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-8"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>234,522</div>
-    </div>
-    <div class="side">
-      <div>7 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-7"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>157,650</div>
-    </div>
-    <div class="side">
-      <div>6 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-6"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>68,083</div>
-    </div>
-      <div class="side">
-      <div>5 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-5"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>30,460</div>
-    </div>
-    <div class="side">
-      <div>4 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-4"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>14,664</div>
-    </div>
-    <div class="side">
-      <div>3 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-3"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>9,922</div>
-    </div>
-    <div class="side">
-      <div>2 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-2"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>7,907</div>
-    </div>
-    <div class="side">
-      <div>1 star</div>
-    </div>
-    <div class="middle">
-      <div class="bar-container">
-        <div class="bar-1"></div>
-      </div>
-    </div>
-    <div class="side right">
-      <div>23,770</div>
-    </div>
-  </div>
   </div>
 
+</body>
+
+{% endblock %}
 
 </html>
