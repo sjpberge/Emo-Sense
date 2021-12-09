@@ -1,9 +1,6 @@
 echo "Installing necessary packages:"
 sudo apt install nodejs npm python3-pip
 
-echo "Switching to Emo-Sense directory"
-cd Emo-Sense
-
 echo "Installing packages for backend and running server"
 cd backend
 npm install
