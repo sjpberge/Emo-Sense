@@ -1,5 +1,7 @@
 echo "Installing necessary packages:"
-sudo apt install nodejs npm python3-pip
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+sudo apt install -y nodejs
+sudo apt install python3-pip
 
 echo "Installing packages for backend and running server"
 cd backend
