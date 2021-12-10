@@ -9,3 +9,6 @@ cd Emo-Sense
 chmod +x ./install.sh
 ./install.sh
 ```
+
+## Development
+In the development, MERN Stack was used and for integration with recommendation system, we used Flask.
