@@ -17,7 +17,6 @@ from pathlib import Path
 
 
 # Flask imports
-import requests
 from flask import Flask, render_template, request, flash, Response
 
 
